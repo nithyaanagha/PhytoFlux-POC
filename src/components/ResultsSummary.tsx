@@ -32,13 +32,13 @@ export function ResultsSummary({ result, inputPm25, inputPm10 }: ResultsSummaryP
           icon={Zap}
           label="Energy Saved"
           value={`${result.energySaved}`}
-          detail="kWh/month vs active"
+          detail="kWh/month"
         />
         <ResultCard
           icon={Leaf}
-          label="Passive System"
-          value="0 kW"
-          detail="No electricity required"
+          label="Active Suction System"
+          value="0.005 kW"
+          detail="5 Watts power draw"
         />
       </div>
 

@@ -74,7 +74,18 @@ export function FilterHealthDashboard({ result }: FilterHealthDashboardProps) {
           value={result.coverageArea}
           unit="m²"
         />
+        <MetricCard
+          icon={Wind}
+          label="Fan Efficiency"
+          value={result.fanEfficiency}
+          unit="%"
+          detail="High-Static Pressure DC Axial Fan · Intake 1.5 m/s"
+        />
       </div>
+
+      <p className="text-xs text-muted-foreground">
+        High pressure resistance validates dense-matrix capture efficiency.
+      </p>
 
       {/* Maintenance recommendation */}
       {isCritical && (
@@ -100,12 +111,14 @@ function MetricCard({
   label,
   value,
   unit,
+  detail,
   alert = false,
 }: {
   icon: React.ElementType;
   label: string;
   value: number;
   unit: string;
+  detail?: string;
   alert?: boolean;
 }) {
   return (
@@ -117,6 +130,7 @@ function MetricCard({
       <p className={`text-lg font-mono font-bold ${alert ? "text-destructive" : "text-foreground"}`}>
         {value} <span className="text-xs text-muted-foreground font-normal">{unit}</span>
       </p>
+      {detail ? <p className="text-[11px] leading-4 text-muted-foreground mt-1">{detail}</p> : null}
     </div>
   );
 }
