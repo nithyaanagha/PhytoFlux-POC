@@ -60,7 +60,7 @@ export function FilterHealthDashboard({ result }: FilterHealthDashboardProps) {
           label="Pressure Drop"
           value={result.pressureDrop}
           unit="Pa"
-          alert={result.pressureDrop > 45}
+          alert={result.pressureDrop > 250}
         />
         <MetricCard
           icon={Wind}

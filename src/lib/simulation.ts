@@ -155,8 +155,10 @@ export function runSimulation(params: SimulationParams): SimulationResult {
   const remainingLife = MAX_FILTER_LIFE_DAYS * (1 - params.filterAge / MAX_FILTER_LIFE_DAYS);
   const daysUntilCleaning = Math.max(0, Math.round(remainingLife / loadFactor));
 
-  // Pressure drop default value used for current filter health model
-  const pressureDrop = 115.4;
+  // Pressure drop is dynamic: base pressure from wind velocity plus clogging from filter age
+  const basePressure = 77 * params.windVelocity;
+  const cloggingIncrease = 0.58 * params.filterAge;
+  const pressureDrop = basePressure + cloggingIncrease;
 
   // Energy saved vs active system (5-10 kW)
   const energySaved = 7.5 * 24 / 1000 * 30; // ~5.4 kWh/month saved
