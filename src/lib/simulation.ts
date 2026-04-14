@@ -156,7 +156,7 @@ export function runSimulation(params: SimulationParams): SimulationResult {
   const daysUntilCleaning = Math.max(0, Math.round(remainingLife / loadFactor));
 
   // Pressure drop default value used for current filter health model
-  const pressureDrop = 23.3;
+  const pressureDrop = 115.4;
 
   // Energy saved vs active system (5-10 kW)
   const energySaved = 7.5 * 24 / 1000 * 30; // ~5.4 kWh/month saved
